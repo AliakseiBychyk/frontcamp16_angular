@@ -2,15 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    context: __dirname + './public',
     devtool: 'eval',
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
-        './src/index'
+        './public/js/index'
     ],
     output: {
-        path: path.join(__dirname, '/public'),
+        path: path.join(__dirname, './public'),
         filename: 'bundle.js',
         publicPath: '/'
     },
@@ -20,8 +19,8 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['', 'babel'],
-            include: path.join(__dirname, 'src')
+            loaders: ['ng-annotate', 'babel'],
+            include: path.join(__dirname, 'public')
         }]
     }
 };

@@ -1,0 +1,28 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "__base": true,
+    "assert": true,
+    "cp": true,
+    "exec": true,
+    "expect": true,
+    "mkdir": true,
+    "sinon": true,
+    "TestUtils": true,
+    "FeatureToggling": true,
+    "dataLayer": true
+  },
+  "rules": {
+    "new-cap": 0,
+    "consistent-return": 1
+  }
+}

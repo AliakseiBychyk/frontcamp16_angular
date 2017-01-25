@@ -1,3 +1,4 @@
+import angular from 'angular';
 import controllers from './controllers';
 import directives from './directives';
 import services from './services';
