@@ -19,11 +19,11 @@ console.log(app);
 app.config(($routeProvider) => {
   $routeProvider.
     when('/', {
-      template: '<h1>Home Page</h1><a ng-href="#/login">Login</a>',
+      templateUrl: 'templates/home.html',
       controller: 'mainController'
     }).
     when('/login', {
-      template: '<a ng-href="#/">Back to home page</a>',
+      templateUrl: 'templates/login.html',
       controller: 'authController'
     }).
     when('/register', {
