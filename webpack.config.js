@@ -18,6 +18,10 @@ module.exports = {
       test: /\.js$/,
       loaders: ['ng-annotate', 'babel'],
       include: path.join(__dirname, 'public')
+    },
+    {
+      test: /\.css$/,
+      loader: 'style!css!sass'
     }]
   }
 };

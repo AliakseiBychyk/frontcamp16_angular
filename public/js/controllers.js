@@ -10,7 +10,6 @@ exports.postController = ($scope) => {
   $scope.title = 'Add new Post';
 };
 
-
 exports.blogController = ($scope) => {
   $scope.title = 'Aleks\'s Blog';
 };
