@@ -27,15 +27,15 @@ app.config(($routeProvider) => {
       controller: 'authController'
     }).
     when('/register', {
-      templateUrl: 'index.html',
+      templateUrl: 'templates/register.html',
       controller: 'authController'
     }).
     when('/blog', {
-      templateUrl: 'index.html',
+      templateUrl: 'templates/blog.html',
       controller: 'blogController'
     }).
     when('/newpost', {
-      templateUrl: 'index.html',
+      templateUrl: 'templates/newpost.html',
       controller: 'postController'
     });
 });
