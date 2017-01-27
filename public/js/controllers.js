@@ -1,5 +1,6 @@
 exports.mainController = ($scope) => {
   $scope.title = 'Angular + Webpack';
+  $scope.greetings = 'Aleks\'s Blog';
 };
 
 exports.authController = ($scope) => {

@@ -11,10 +11,11 @@ _.each(controllers, (controller, name) => {
   console.log(controller);
 })
 
-const app = angular.module('frontcamp16', ['frontcamp16.components', ngRoute]);
+const app = angular.module('frontcamp16', ['frontcamp16.components', 'ngRoute']);
 
-console.log(ngRoute);
-console.log(app);
+console.log(ngRoute); // => 'ngRoute'
+console.log(ngRoute === 'ngRoute'); // => true
+console.log(app); // => Object {...}
 
 app.config(($routeProvider) => {
   $routeProvider.
