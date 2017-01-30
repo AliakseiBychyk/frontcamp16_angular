@@ -16,15 +16,28 @@ exports.blogController = ($scope) => {
 };
 
 exports.PostsController = ($scope) => { 
+ 
+  const getPosts = (callback) => {
+    fetch('http://localhost:8000/blog/json')
+      .then(response => response.json())
+      .then((data) => {
+        callback(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-  $scope.posts = fetch('http://localhost:8000/blog/json')
-    .then(response => response.json())
-    .then((data) => {
-      $scope.posts = data.posts;
-      $scope.posts.forEach(post => console.log(post.title));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
+  getPosts( data => {
+    $scope.posts = data.posts
+    $scope.posts.forEach(post => console.log(post.title));
+  }); 
+  
+  
+  // $scope.posts = getPosts(data => data.posts);
+  // $scope.posts.forEach(post => console.log(post.title));
+ 
 };
+
+
+// exports.PostsController = funcion($scope, $http)

@@ -8,7 +8,7 @@ exports.homePage = () => {
 
 exports.posts = () => {
   return {
-    controller: 'MyHTTPController',
+    controller: 'PostsController',
     templateUrl: 'templates/blog.html'
   }
 }  
