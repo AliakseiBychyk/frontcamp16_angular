@@ -77,8 +77,8 @@ exports.PostsController = ($scope) => {
         fetch('http://localhost:8000/blog/json')
             .then(response => response.json())
             .then((data) => {
-                data.posts.forEach(post => console.log(post.title));
                 $scope.posts = data.posts;
+                $scope.posts.forEach(post => console.log(post.title));
             })
             .catch((err) => {
                 console.log(err);
@@ -88,7 +88,8 @@ exports.PostsController = ($scope) => {
     $scope.load();
 
     setTimeout(() => {
+       // $scope.load();
         $scope.$emit('PostsController');
-    }, 2000);
+    }, 0);
     
 };
