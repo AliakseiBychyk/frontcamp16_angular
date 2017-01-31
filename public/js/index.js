@@ -24,24 +24,24 @@ app.config(($routeProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'templates/home.html',
-            controller: 'mainController'
+            controller: 'MainController'
         })
         .when('/login', {
             templateUrl: 'templates/login.html',
-            controller: 'authController'
+            controller: 'AuthController'
         })
         .when('/register', {
             templateUrl: 'templates/register.html',
-            controller: 'authController'
+            controller: 'AuthController'
         })
         .when('/blog', {
             templateUrl: 'templates/blog.html',
             controller: 'PostsController'
-        }).
-    when('/newpost', {
-        templateUrl: 'templates/newpost.html',
-        controller: 'postController'
-    });
+        })
+        .when('/newpost', {
+            templateUrl: 'templates/newpost.html',
+            controller: 'NewPostController'
+        });
 });
 
 // app.factory('DataPosts', () => {
@@ -60,14 +60,54 @@ app.config(($routeProvider) => {
 //     }
 // })
 
-app.value('model', () => {
-    fetch('http://localhost:8000/blog/json')
-        .then(response => response.json())
-        .then((data) => {
-            return data.posts;
-            data.posts.forEach(post => console.log(post.title));
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-})
+// app.value('model', (resolve) => {
+//     fetch('http://localhost:8000/blog/json')
+//         .then(response => response.json())
+//         .then((data) => {
+//             data;
+//             data.posts.forEach(post => console.log(post.title));
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// })
+
+// app.factory('dataPosts', () => {
+//     var dataPosts = [];
+//     function getData() {
+//         fetch('http://localhost:8000/blog/json')
+//             .then(response => response.json())
+//             .then((data) => {
+//                 dataPosts = data.posts;
+//                 dataPosts.forEach(post => console.log(post.title));
+//             })
+//             .catch((err) => {
+//                 console.log(err);
+//             })
+//     }
+//     getData();
+//     return dataPosts;
+// })
+
+// app.controller('PostsController', ($scope) => {
+//     fetch('http://localhost:8000/blog/json')
+//         .then(response => response.json())
+//         .then((data) => {
+//             data.posts.forEach(post => console.log(post.title));
+//             $scope.data = data;
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// })
+
+
+
+// app.controller('PostsController', ($scope, $http) => {
+//     $http.get('http://localhost:8000/blog/json')
+//         .success(function(data) {
+//             data.posts.forEach(post => console.log(post.title));
+//             $scope.data = data;
+//         })
+//         .error((err) => console.log(err));
+// })
