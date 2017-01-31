@@ -15,25 +15,11 @@ exports.BlogController = ($scope) => {
     $scope.title = 'Aleks\'s Blog';
 };
 
-exports.PostsController = ($scope) => {
-
-    $scope.load = () => {
-        fetch('http://localhost:8000/blog/json')
-            .then(response => response.json())
-            .then((data) => {
-                $scope.posts = data.posts;
-                $scope.posts.forEach(post => console.log(post.title));
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
-    $scope.load();
-
-    setTimeout(() => {
-       // $scope.load();
-        $scope.$emit('PostsController');
-    }, 0);
-    
+exports.PostsController = ($scope, GetJSON) => {
+    GetJSON.getPosts()
+        .then(posts => {
+            posts.forEach(post => console.log(post.title));
+            return $scope.posts = posts;
+        })
+        .catch(err => console.log(err));
 };

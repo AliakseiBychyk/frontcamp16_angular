@@ -43,3 +43,16 @@ app.config(($routeProvider) => {
             controller: 'NewPostController'
         });
 });
+
+app.factory('GetJSON', () => {
+    return {
+        getPosts: () => {
+            return fetch('http://localhost:8000/blog/json')
+                .then(response => response.json())
+                .then( data => {
+                    resolve(data.posts);
+                })
+                .catch((err) => console.log(err));
+        }
+    }
+})
