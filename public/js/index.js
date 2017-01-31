@@ -3,19 +3,20 @@ import ngRoute from 'angular-route';
 import _ from 'underscore';
 import directives from './directives';
 import controllers from './controllers';
+import services from './services';
 
 const components = angular.module('frontcamp16.components', ['ng']);
 
 _.each(controllers, (controller, name) => {
     components.controller(name, controller);
-    console.log(name); // => authController
-    console.log(controller); // => function ($scope) {$scope.title = 'Authentification';}
 })
 
 _.each(directives, (directive, name) => {
     components.directive(name, directive);
-    console.log(name);
-    console.log(directive);
+});
+
+_.each(services, (factory, name) => {
+    components.factory(name, factory);
 });
 
 const app = angular.module('frontcamp16', ['frontcamp16.components', 'ngRoute']);
@@ -43,18 +44,3 @@ app.config(($routeProvider) => {
             controller: 'NewPostController'
         });
 });
-
-app.service('GetJSON', ($q) => {
-    const deffered = $q.defer();
-    fetch('http://localhost:8000/blog/json')
-        .then(response => response.json())
-        .then( data => {
-            deffered.resolve(data);
-        })
-        .catch((err) => console.log(err));
-    return {
-        getPosts: () => {
-        return deffered.promise;
-        }
-    }    
-})
