@@ -16,10 +16,11 @@ exports.BlogController = ($scope) => {
 };
 
 exports.PostsController = ($scope, GetJSON) => {
-    GetJSON.getPosts()
-        .then(posts => {
-            posts.forEach(post => console.log(post.title));
-            return $scope.posts = posts;
+    const promise = GetJSON.getPosts();
+    promise
+        .then(data => {
+            data.posts.forEach(post => console.log(post.title));
+            $scope.posts = data.posts;
         })
         .catch(err => console.log(err));
 };

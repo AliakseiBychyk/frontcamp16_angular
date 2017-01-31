@@ -12,7 +12,7 @@
     <div class="container">
     Latest Posts  
       <ul>
-         <li ng-repeat="post in posts track by post.date"> {{post.title}} </li>
+         <li ng-repeat="post in posts track by post._id"> {{post.title}} </li>
       </ul>
       <div></div>
     </div>

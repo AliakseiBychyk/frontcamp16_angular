@@ -44,15 +44,17 @@ app.config(($routeProvider) => {
         });
 });
 
-app.factory('GetJSON', () => {
+app.service('GetJSON', ($q) => {
+    const deffered = $q.defer();
+    fetch('http://localhost:8000/blog/json')
+        .then(response => response.json())
+        .then( data => {
+            deffered.resolve(data);
+        })
+        .catch((err) => console.log(err));
     return {
         getPosts: () => {
-            return fetch('http://localhost:8000/blog/json')
-                .then(response => response.json())
-                .then( data => {
-                    resolve(data.posts);
-                })
-                .catch((err) => console.log(err));
+        return deffered.promise;
         }
-    }
+    }    
 })
