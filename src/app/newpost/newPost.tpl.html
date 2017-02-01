@@ -1,0 +1,30 @@
+<div ng-controller="postController">{{title}}</div>
+
+<div class="container">
+  <h1>New Post</h1>
+  <p class="lead">You are going to add a new post</p>
+  <br />
+  <form>
+    <div class="form-group">
+      <input class="form-control" type="text" name="title" placeholder="Subject" />
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="body" placeholder="Post body" />
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="permalink" placeholder="Permalink" />
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="author" placeholder="Author" />
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="tags" placeholder="Tags" />
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="date" placeholder="Date" />
+    </div>
+  </form>
+  <button class="btn btn-default" type="submit">Submit</button>
+
+  <h4><a ng-href="#/blog">Back to blog</a> </h4>
+</div>
