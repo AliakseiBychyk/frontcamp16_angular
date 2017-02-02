@@ -62,6 +62,6 @@ app.config(($routeProvider, $locationProvider) => {
             templateUrl: 'app/newpost/newPost.tpl.html',
             controller: 'BlogController'
         });
-
+    $locationProvider.html5Mode(false); // there is no need to use HTML5 history API
     $locationProvider.hashPrefix('');
 });
