@@ -4,19 +4,19 @@
   <br />
   <form ng-Submit="post()">
     <div class="form-group">
-      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="newPost.title" />
+      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="{{newPost.title | limitTo: 15}}" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="newPost.body" />
+      <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="{{newPost.body | limitTo: 200}}" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="permalink" placeholder="Permalink" ng-model="newPost.permalink" />
+      <input class="form-control" type="text" name="permalink" placeholder="Permalink" ng-model="{{newPost.permalink | limitTo : 10" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="author" placeholder="Author" ng-model="newPost.author" />
+      <input class="form-control" type="text" name="author" placeholder="Author" ng-model="{{newPost.author | limitTo: 10}}" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="tags" placeholder="Tags" ng-model="newPost.tags"/>
+      <input class="form-control" type="text" name="tags" placeholder="Tags" ng-model="{{newPost.tags | lowercase | no_spaces }}"/>
     </div>
   </form>
   <button class="btn btn-default" type="submit">Submit</button>

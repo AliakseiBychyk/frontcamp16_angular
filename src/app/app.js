@@ -36,7 +36,6 @@ services.forEach(service => {
     });
 });
 
-
 // main application module with routing
 const app = angular.module('frontcamp16', ['frontcamp16.components', 'ngRoute']);
 
@@ -62,6 +61,7 @@ app.config(($routeProvider, $locationProvider) => {
             templateUrl: 'app/newpost/newPost.html',
             controller: 'BlogController'
         });
+    
     $locationProvider.html5Mode(false); // there is no need to use HTML5 history API
     $locationProvider.hashPrefix('');
 });
