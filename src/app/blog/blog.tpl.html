@@ -1,10 +1,12 @@
 <div class="container">
   <h1> Blog Page </h1>
     <h2 class="lead"> Here are some post below, do you want to add new post?</h2>
-    <form method="post" action="#/newpost">
-      <button class="btn, btn-default" type="submit"><Link to="#/newpost">Yes</Link></button>
+    <form method="post">
+    <a ng-href="#/newpost">
+      <button class="btn, btn-default" type="submit">Yes</button>
+    </a>
       &nbsp;
-      <a href="#/blog">
+      <a ng-href="#/">
         <button class="btn, btn-primary" type="button">No</button>
       </a>  
     </form>
