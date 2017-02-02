@@ -2,9 +2,9 @@ import angular from 'angular';
 import ngRoute from 'angular-route';
 import _ from 'underscore';
 // controllers
-import MainController from './home/mainCtrl';
-import AuthController from './authentification/authCtrl';
-import BlogController from './blog/blogCtrl';
+import MainController from './home/main.controller';
+import AuthController from './authentification/auth.controller';
+import BlogController from './blog/blog.controller';
 
 // services
 import GetJSON from './blog/getJSON.service.js';
@@ -43,23 +43,23 @@ const app = angular.module('frontcamp16', ['frontcamp16.components', 'ngRoute'])
 app.config(($routeProvider, $locationProvider) => {
     $routeProvider
         .when('/', {
-            templateUrl: 'app/home/home.tpl.html',
+            templateUrl: 'app/home/home.html',
             controller: 'MainController'
         })
         .when('/login', {
-            templateUrl: 'app/authentification/login.tpl.html',
+            templateUrl: 'app/authentification/login.html',
             controller: 'AuthController'
         })
         .when('/register', {
-            templateUrl: 'app/authentification/register.tpl.html',
+            templateUrl: 'app/authentification/register.html',
             controller: 'AuthController'
         })
         .when('/blog', {
-            templateUrl: 'app/blog/blog.tpl.html',
+            templateUrl: 'app/blog/blog.html',
             controller: 'BlogController'
         })
         .when('/newpost', {
-            templateUrl: 'app/newpost/newPost.tpl.html',
+            templateUrl: 'app/newpost/newPost.html',
             controller: 'BlogController'
         });
     $locationProvider.html5Mode(false); // there is no need to use HTML5 history API
