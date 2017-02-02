@@ -5,7 +5,6 @@ import _ from 'underscore';
 import MainController from './home/main.controller';
 import AuthController from './authentification/auth.controller';
 import BlogController from './blog/blog.controller';
-
 // services
 import GetJSON from './blog/getJSON.service.js';
 
