@@ -17,10 +17,10 @@ exports.BlogController = ($scope, GetJSON) => {
         date: ''
     };
 
-    $scope.post = () => {
+    $scope.writePost = () => {
         $scope.newPost.date = Date.now();
         $scope.posts.push($scope.newPost);
-        $scopw.newPost = {
+        $scope.newPost = {
             title: '',
             body: '',
             permalink: '',

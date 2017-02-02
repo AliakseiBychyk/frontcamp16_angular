@@ -4,22 +4,28 @@
   <br />
   <form ng-Submit="post()">
     <div class="form-group">
-      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="{{newPost.title | limitTo: 15}}" />
+      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="newPost.title" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="{{newPost.body | limitTo: 200}}" />
+      <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="newPost.body" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="permalink" placeholder="Permalink" ng-model="{{newPost.permalink | limitTo : 10" />
+      <input class="form-control" type="text" name="permalink" placeholder="Permalink" ng-model="newPost.permalink" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="author" placeholder="Author" ng-model="{{newPost.author | limitTo: 10}}" />
+      <input class="form-control" type="text" name="author" placeholder="Author" ng-model="newPost.author" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="tags" placeholder="Tags" ng-model="{{newPost.tags | lowercase | no_spaces }}"/>
+      <input class="form-control" type="text" name="tags" placeholder="Tags" ng-model="newPost.tags"/>
     </div>
   </form>
   <button class="btn btn-default" type="submit">Submit</button>
 
   <h4><a ng-href="#/blog">Back to blog</a> </h4>
+
+  <div class="container">
+    <h3>{{newPost.title}}</h3>
+    <p>{{newPost.body}}</p>
+    <small class="pull-right">{{newPost.date | date: "MMM d, y"}}</small>
+  </div>
 </div>
