@@ -4,7 +4,7 @@
   <br />
   <form ng-Submit="post()">
     <div class="form-group">
-      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="newPost.title" />
+      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="newPost.title" ng-pattern="/.*/{10}" />
     </div>
     <div class="form-group">
       <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="newPost.body" />
@@ -26,6 +26,7 @@
   <div class="container">
     <h3>{{newPost.title}}</h3>
     <p>{{newPost.body}}</p>
+    <p>Written by: {{newPost.author}}</p>
     <small class="pull-right">{{newPost.date | date: "MMM d, y"}}</small>
   </div>
 </div>
