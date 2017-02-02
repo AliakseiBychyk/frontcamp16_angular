@@ -1,39 +1,25 @@
-<div ng-controller="postController">{{title}}</div>
-
 <div class="container">
   <h1>New Post</h1>
   <p class="lead">You are going to add a new post</p>
   <br />
-  <form>
+  <form ng-Submit="post()">
     <div class="form-group">
-      <input class="form-control" type="text" name="title" placeholder="Subject" />
+      <input class="form-control" type="text" name="title" placeholder="Subject" ng-model="newPost.title" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="body" placeholder="Post body" />
+      <input class="form-control" type="text" name="body" placeholder="Post body" ng-model="newPost.body" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="permalink" placeholder="Permalink" />
+      <input class="form-control" type="text" name="permalink" placeholder="Permalink" ng-model="newPost.permalink" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="author" placeholder="Author" />
+      <input class="form-control" type="text" name="author" placeholder="Author" ng-model="newPost.author" />
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" name="tags" placeholder="Tags" />
-    </div>
-    <div class="form-group">
-      <input class="form-control" type="text" name="date" placeholder="Date" />
+      <input class="form-control" type="text" name="tags" placeholder="Tags" ng-model="newPost.tags"/>
     </div>
   </form>
   <button class="btn btn-default" type="submit">Submit</button>
 
   <h4><a ng-href="#/blog">Back to blog</a> </h4>
 </div>
-
-
-
-
-<form ng-Submit="post()"> 
-     <input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.created_by" />  
-     <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea> 
-     <input class="btn submit-btn pull-right" type="submit" value="Chirp!" /> 
-   </form> 
