@@ -40,7 +40,7 @@ services.forEach(service => {
 // main application module with routing
 const app = angular.module('frontcamp16', ['frontcamp16.components', 'ngRoute']);
 
-app.config(($routeProvider) => {
+app.config(($routeProvider, $locationProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'app/home/home.tpl.html',
@@ -62,4 +62,6 @@ app.config(($routeProvider) => {
             templateUrl: 'app/newpost/newPost.tpl.html',
             controller: 'BlogController'
         });
+
+    $locationProvider.hashPrefix('');
 });
