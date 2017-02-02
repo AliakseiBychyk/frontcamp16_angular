@@ -6,4 +6,27 @@ exports.BlogController = ($scope, GetJSON) => {
             $scope.posts = data.posts;
         })
         .catch(err => console.log(err));
+
+
+    $scope.newPost = { 
+        title: '',
+        body: '',
+        permalink: '',
+        author: '',
+        tags: [],
+        date: ''
+    };
+
+    $scope.post = () => {
+        $scope.newPost.date = Date.now();
+        $scope.posts.push($scope.newPost);
+        $scopw.newPost = {
+            title: '',
+            body: '',
+            permalink: '',
+            author: '',
+            tags: [],
+            date: ''
+        };
+    };    
 };

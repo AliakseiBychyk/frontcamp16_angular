@@ -4,13 +4,13 @@ import _ from 'underscore';
 // controllers
 import MainController from './home/mainCtrl';
 import AuthController from './authentification/authCtrl';
-import BlogController from './blog/blogCtrl'
-import NewPostController from './newpost/newPostCtrl';
+import BlogController from './blog/blogCtrl';
+
 // services
 import GetJSON from './blog/getJSON.service.js';
 
 // arrange components 
-const controllers = [MainController, AuthController, BlogController, NewPostController];
+const controllers = [MainController, AuthController, BlogController];
 const services = [GetJSON];
 const directives = [];
 
@@ -60,6 +60,6 @@ app.config(($routeProvider) => {
         })
         .when('/newpost', {
             templateUrl: 'app/newpost/newPost.tpl.html',
-            controller: 'NewPostController'
+            controller: 'BlogController'
         });
 });
