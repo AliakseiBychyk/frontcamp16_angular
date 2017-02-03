@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -11,7 +12,8 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new ngAnnotatePlugin({add: true})
   ],
   module: {
     loaders: [{

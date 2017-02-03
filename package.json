@@ -31,6 +31,7 @@
     "method-override": "^2.3.7",
     "mongoose": "^4.7.3",
     "morgan": "~1.5.1",
+    "ng-annotate-webpack-plugin": "^0.2.1-pre",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",

@@ -1,4 +1,5 @@
 exports.BlogController = ($scope, GetJSON) => {
+    'ngInject';
     const promise = GetJSON.getPosts();
     promise
         .then(data => {
