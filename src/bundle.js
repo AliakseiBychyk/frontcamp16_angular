@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4c760b98046f2016edd7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bdf4d061f4da7cae4c4b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -631,7 +631,7 @@
 /* 8 */
 /***/ function(module, exports) {
 
-	eval("'use strict';\n\nexports.BlogController = [\"$scope\", \"GetJSON\", function ($scope, GetJSON) {\n    'ngInject';\n\n    var promise = GetJSON.getPosts();\n    promise.then(function (data) {\n        data.posts.forEach(function (post) {\n            return console.log(post.title);\n        });\n        $scope.posts = data.posts;\n    }).catch(function (err) {\n        return console.log(err);\n    });\n\n    $scope.newPost = {\n        title: '',\n        body: '',\n        permalink: '',\n        author: '',\n        tags: [],\n        date: ''\n    };\n\n    $scope.writePost = function () {\n        $scope.newPost.date = Date.now();\n        $scope.posts.push($scope.newPost);\n        $scope.newPost = {\n            title: '',\n            body: '',\n            permalink: '',\n            author: '',\n            tags: [],\n            date: ''\n        };\n    };\n}];\n\n//////////////////\n// WEBPACK FOOTER\n// ./app/blog/blog.controller.js\n// module id = 8\n// module chunks = 0\n//# sourceURL=webpack:///./app/blog/blog.controller.js?");
+	eval("'use strict';\n\nexports.BlogController = [\"$scope\", \"GetJSON\", function ($scope, GetJSON) {\n    'ngInject';\n\n    var promise = GetJSON.getPosts();\n    $scope.counter = 0;\n\n    promise.then(function (data) {\n        data.posts.forEach(function (post) {\n            console.log(post.title);\n            $scope.counter++;\n            console.log('number of posts is ' + $scope.counter);\n        });\n        $scope.posts = data.posts;\n    }).catch(function (err) {\n        return console.log(err);\n    });\n\n    $scope.newPost = {\n        title: '',\n        body: '',\n        permalink: '',\n        author: '',\n        tags: [],\n        date: ''\n    };\n\n    $scope.writePost = function () {\n        $scope.newPost.date = Date.now();\n        $scope.posts.push($scope.newPost);\n        $scope.newPost = {\n            title: '',\n            body: '',\n            permalink: '',\n            author: '',\n            tags: [],\n            date: ''\n        };\n    };\n}];\n\n//////////////////\n// WEBPACK FOOTER\n// ./app/blog/blog.controller.js\n// module id = 8\n// module chunks = 0\n//# sourceURL=webpack:///./app/blog/blog.controller.js?");
 
 /***/ },
 /* 9 */

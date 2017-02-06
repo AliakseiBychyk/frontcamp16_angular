@@ -1,9 +1,15 @@
 exports.BlogController = ($scope, GetJSON) => {
     'ngInject';
     const promise = GetJSON.getPosts();
+    $scope.counter = 0;
+
     promise
         .then(data => {
-            data.posts.forEach(post => console.log(post.title));
+            data.posts.forEach(post => {
+                console.log(post.title);
+                $scope.counter++;
+                console.log('number of posts is ' + $scope.counter);
+            });
             $scope.posts = data.posts;
         })
         .catch(err => console.log(err));
