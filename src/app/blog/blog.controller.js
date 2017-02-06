@@ -8,7 +8,6 @@ exports.BlogController = ($scope, GetJSON) => {
         })
         .catch(err => console.log(err));
 
-
     $scope.newPost = { 
         title: '',
         body: '',

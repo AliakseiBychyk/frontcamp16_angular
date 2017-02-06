@@ -24,7 +24,7 @@
   <h4><a ng-href="#/blog">Back to blog</a> </h4>
 
   <div class="container">
-    <h3>{{newPost.title}}</h3>
+    <h3>{{newPost.title | titleCase}}</h3>
     <p>{{newPost.body}}</p>
     <p>Written by: {{newPost.author}}</p>
     <small class="pull-right">{{newPost.date | date: "MMM d, y"}}</small>

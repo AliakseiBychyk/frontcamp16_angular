@@ -8,11 +8,14 @@ import AuthController from './authentification/auth.controller';
 import BlogController from './blog/blog.controller';
 // services
 import GetJSON from './blog/getJSON.service';
+// filters
+import titleCase from './newpost/title-case.filter';
 
 // arrange components
 const controllers = [MainController, AuthController, BlogController];
 const services = [GetJSON];
 const directives = [];
+const filters = [titleCase];
 
 // connect components to main module
 const components = angular.module('frontcamp16.components', ['ng']);
@@ -32,6 +35,12 @@ directives.forEach(directive => {
 services.forEach(service => {
   _.each(service, (factory, name) => {
     components.factory(name, factory);
+  });
+});
+
+filters.forEach(filter => {
+  _.each(filter, (filter, name) => {
+    components.filter(name, filter);
   });
 });
 
