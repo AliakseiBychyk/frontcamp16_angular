@@ -4,6 +4,8 @@ describe('BlogController', function () {
   var controller;
   var GetJSON;
 
+  window.Promise = Promise;
+
   beforeEach(function () {
     module('frontcamp16.components');
     inject(function ($injector) {
@@ -23,5 +25,7 @@ describe('BlogController', function () {
   afterEach(function () {
     
   });
+
+  after
 
 })
