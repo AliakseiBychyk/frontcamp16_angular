@@ -14,10 +14,14 @@ describe('BlogController', function () {
   });
 
   describe('Get the posts number', function () {
-    it('Should return the number of post equals 20', function () {      
+    it('Should return the number of post equals 20', function () {
+      $scope.$digest();
       expect($scope.counter).toEqual(20);
     });
   });
 
+  afterEach(function () {
+    
+  });
 
 })
