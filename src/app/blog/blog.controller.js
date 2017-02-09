@@ -3,16 +3,20 @@ exports.BlogController = ($scope, GetJSON) => {
     const promise = GetJSON.getPosts();
     $scope.counter = 0;
 
-    promise
-        .then(data => {
-            data.posts.forEach(post => {
-                console.log(post.title);
-                $scope.counter++;
-                console.log('number of posts is ' + $scope.counter);
-            });
-            $scope.posts = data.posts;
-        })
-        .catch(err => console.log(err));
+    $scope.setBlog = function () {
+        promise
+            .then(data => {
+                data.posts.forEach(post => {
+                    console.log(post.title);
+                    $scope.counter++;
+                    console.log('number of posts is ' + $scope.counter);
+                });
+                $scope.posts = data.posts;
+            })
+            .catch(err => console.log(err));
+    };
+
+   // $scope.setBlog();
 
     $scope.newPost = { 
         title: '',
