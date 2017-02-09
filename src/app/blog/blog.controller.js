@@ -13,10 +13,13 @@ exports.BlogController = ($scope, GetJSON) => {
                 });
                 $scope.posts = data.posts;
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                $scope.error = "There has been an error!";
+            });
     };
 
-   // $scope.setBlog();
+    $scope.setBlog();
 
     $scope.newPost = { 
         title: '',
