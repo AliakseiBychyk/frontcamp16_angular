@@ -32,6 +32,6 @@ describe('BlogController', function () {
     $scope.$apply();
     expect($scope.posts).toBe(undefined);
     expect($scope.error).toBe("There has been an error!");
-  })
+  });
 
 });

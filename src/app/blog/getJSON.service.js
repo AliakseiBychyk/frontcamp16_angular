@@ -4,7 +4,10 @@ exports.GetJSON = ($q) => {
   fetch('http://localhost:8000/blog/json')
     .then(response => response.json())
     .then(data => deffered.resolve(data))
-    .catch((err) => console.log("There has been an error!"));
+    .catch((err) => {
+      console.log("There has been an error!");
+      deferred.reject();
+    });
   return {
     getPosts: () => {
       return deffered.promise;
