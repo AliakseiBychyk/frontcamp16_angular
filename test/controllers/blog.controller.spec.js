@@ -2,9 +2,11 @@ describe('BlogController', function () {
   var $rootScope;
   var $scope;
   var controller;
+  var GetJSON;
+  var getJSONSpy;
   var $q;
   var deferred;
-  var GetJSON;
+
 
   beforeEach(function () {
     module('frontcamp16.components');
@@ -14,24 +16,18 @@ describe('BlogController', function () {
       GetJSON = $injector.get('GetJSON');
       $q = $injector.get('$q');
       deferred = $q.defer();
-
-      spyOn(GetJSON, 'getPosts').and.returnValue(deferred.promise);
+      getJSONSpy = spyOn(GetJSON, 'getPosts').and.returnValue(deferred.promise);
       controller = $injector.get('$controller')('BlogController', { $scope: $scope, GetJSON: GetJSON });
     });
   });
-
-  it("Should resolve promise", function () {
-    deferred.resolve();
-    $scope.$apply();
-    expect($scope.posts).not.toBe(undefined);
-    expect($scope.error).toBe(undefined);
-  });
   
-  it("Should reject promise", function () {
-    deferred.reject();
-    $scope.$apply();
-    expect($scope.posts).toBe(undefined);
-    expect($scope.error).toBe("There has been an error!");
+  describe("Action Handlers", function () {
+    it("Should call the GetJSON.getPosts method and resolve promise", function () {
+      deferred.resolve({ posts: [{ title: 'Test Post One' }] });
+      $scope.$apply();
+      expect(getJSONSpy).toHaveBeenCalledWith();
+      expect($scope.posts).not.toBe(undefined);
+      expect($scope.error).toBe(undefined);
+    });
   });
-
 });

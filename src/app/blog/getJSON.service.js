@@ -1,16 +1,16 @@
 exports.GetJSON = ($q) => {
   'ngInject';
-  const deffered = $q.defer();
+  const deferred = $q.defer();
   fetch('http://localhost:8000/blog/json')
     .then(response => response.json())
-    .then(data => deffered.resolve(data))
+    .then(data => deferred.resolve(data))
     .catch((err) => {
       console.log("There has been an error!");
-      deferred.reject();
+      deferred.reject()
     });
   return {
     getPosts: () => {
-      return deffered.promise;
+      return deferred.promise;
     }
   }
 };
